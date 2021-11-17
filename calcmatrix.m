@@ -53,7 +53,6 @@ C = [0, 0, 1, 0];
 % D-matrix.
 D = 0;
 
-
 % Get transfer function.
 [num, den] = ss2tf(A, B, C, D, 1);
 
