@@ -41,9 +41,16 @@ Apre = [ 0, 1, 0, 0;
 % Derive correct A-matrix.
 A = inv(L) * Apre;
 
-% Beta matrix.
-Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
+% Beta matrix for simulation.
+Bpre = [ 
+    0, 0;
+    K_t / R_m, l_w;
+    0, 0;
+    -K_t/R_m, l_b
+    ];
 
+% Beta matrix.
+% Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 % Derive correct B-matrix.
 B = inv(L) * Bpre;
 
