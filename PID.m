@@ -75,4 +75,4 @@ sys = feedback(G, pid);
 [num, den] = ss2tf(sysA, sysB, sysC, sysD);
 
 % State space to pole-zero conversion.
-[z, p, k] = ss2zp(sysA, sysB, sysC, sysD)
+[zeroes, poles, gain] = ss2zp(sysA, sysB, sysC, sysD);

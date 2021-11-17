@@ -41,8 +41,17 @@ Apre = [ 0, 1, 0, 0;
 % Derive correct A-matrix.
 A = inv(L) * Apre;
 
+% Beta matrix for simulation.
+Bpre = [ 
+    0, 0;
+    K_t / R_m, l_w;
+    0, 0;
+    -K_t/R_m, l_b
+    ];
+
 % Beta matrix.
-Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
+% Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
+
 
 % Derive correct B-matrix.
 B = inv(L) * Bpre;
@@ -51,13 +60,10 @@ B = inv(L) * Bpre;
 C = [0, 0, 1, 0];
 
 % D-matrix.
-D = 0;
+D = [0, 0];
 
 % Get transfer function.
 [num, den] = ss2tf(A, B, C, D, 1);
 
-% Solve roots of denominator to get poles.
-poles = roots(den);
-
-% Solve roots of numerator to get zeroes.
-zeroes = roots(num);
+% State space to zero-pole conversion.
+[zeroes, poles, gain] = ss2zp(A, B, C, D, 1);
