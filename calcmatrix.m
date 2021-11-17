@@ -46,3 +46,13 @@ Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 
 % Derive correct B-matrix.
 B = inv(L) * Bpre;
+
+% C-matrix
+C = [0, 0, 1, 0];
+
+% D-matrix.
+D = 0;
+
+
+
+[num, den] = ss2tf(A, B, C, D, 1);

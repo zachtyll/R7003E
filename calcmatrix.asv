@@ -1,3 +1,4 @@
+% Define constants.
 g = 9.8;
 b_f = 0;
 m_b = 0.381;
@@ -18,7 +19,7 @@ L24 = l_w * m_b * l_b;
 L42 = m_b * l_b;
 L44 = I_b + m_b * l_b^(2);
 
-% Gamma matrix
+% Gamma matrix.
 L = [1, 0, 0, 0;
     0, L22, 0, L24;
     0, 0, 1, 0;
@@ -31,15 +32,27 @@ a42 = - a22;
 a43 = m_b * l_b * g;
 a44 = - a24;
 
-% Alfa matrix
+% Alfa matrix.
 Apre = [ 0, 1, 0, 0;
     0, a22, 0, a24;
     0, 0, 0, 1;
     0, a42, a43, a44];
 
+% Derive correct A-matrix.
 A = inv(L) * Apre;
 
-% Beta matrix
+% Beta matrix.
 Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 
+% Derive correct B-matrix.
 B = inv(L) * Bpre;
+
+% C-matrix
+C = [0, 0, 1, 0];
+
+% D-matrix.
+D = 0;
+
+
+
+[N1, D1] = ss2tf(A, B, C, D);
