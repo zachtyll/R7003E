@@ -54,5 +54,11 @@ C = [0, 0, 1, 0];
 D = 0;
 
 
-
+% Get transfer function.
 [num, den] = ss2tf(A, B, C, D, 1);
+
+% Solve roots of denominator to get poles.
+poles = roots(den);
+
+% Solve roots of numerator to get zeroes.
+zeroes = roots(num);
