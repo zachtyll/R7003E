@@ -12,23 +12,26 @@ b_m = 0;
 K_e = 0.444;
 K_t = 0.470;
 
+% Gamma matrix coeff.
 L22 = I_w/l_w + l_w * m_w + l_w * m_b;
 L24 = l_w * m_b * l_b;
 L42 = m_b * l_b;
 L44 = I_b + m_b * l_b^(2);
 
-% 
+% Gamma matrix
 L = [1, 0, 0, 0;
     0, L22, 0, L24;
     0, 0, 1, 0;
     0, L42, 0, L44];
 
+% Alfa matrix coeff.
 a22 = -(K_e * K_t) / (R_m * l_w);
 a24 = (K_e *K_t) / R_m;
 a42 = - a22;
 a43 = m_b * l_b * g;
 a44 = - a24;
 
+% Alfa matrix
 Apre = [ 0, 1, 0, 0;
     0, a22, 0, a24;
     0, 0, 0, 1;
@@ -36,6 +39,7 @@ Apre = [ 0, 1, 0, 0;
 
 A = inv(L) * Apre;
 
+% Beta matrix
 Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 
 B = inv(L) * Bpre;
