@@ -70,3 +70,9 @@ sys = feedback(G, pid);
 
 % Create a state space model of system.
 [sysA, sysB, sysC, sysD] = ssdata(sys);
+
+% Transfer function of system.
+[num, den] = ss2tf(sysA, sysB, sysC, sysD);
+
+% State space to pole-zero conversion.
+[z, p, k] = ss2zp(sysA, sysB, sysC, sysD)
