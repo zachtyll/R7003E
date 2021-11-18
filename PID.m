@@ -1,3 +1,7 @@
+% Magical stuff that might make it work?
+clear all
+clc
+
 % Define constants.
 g = 9.8;
 b_f = 0;
@@ -42,15 +46,15 @@ Apre = [ 0, 1, 0, 0;
 A = inv(L) * Apre;
 
 % Beta matrix for simulation.
-Bpre = [ 
-    0, 0;
-    K_t / R_m, l_w;
-    0, 0;
-    -K_t/R_m, l_b
-    ];
+%Bpre = [ 
+%    0, 0;
+%    K_t / R_m, l_w;
+%    0, 0;
+%    -K_t/R_m, l_b
+%    ];
 
 % Beta matrix.
-% Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
+Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 % Derive correct B-matrix.
 B = inv(L) * Bpre;
 
@@ -61,19 +65,18 @@ C = [0, 0, 1, 0];
 D = 0;
 
 % Define gains. (Can't be zero for some reason).
-K_p = 1;
-K_i = 1;
-K_d = 1;
-T_f = 1; % Derivative filter time constant.
+Kp = 46;
+Ki = 260;
+Kd = 0.1;
 
 % Add parts into state space form.
 G = ss(A,B,C,D);
 
 % Define PID controller.
-pid = pid(K_p, K_i, K_d);
+pid = pidstd(Kp, Ki, Kd);
 
 % Glue system together.
-sys = feedback(G, pid);
+sys = feedback(G * pid, -1);
 
 % Create a state space model of system.
 [sysA, sysB, sysC, sysD] = ssdata(sys);
@@ -83,3 +86,11 @@ sys = feedback(G, pid);
 
 % State space to pole-zero conversion.
 [zeroes, poles, gain] = ss2zp(sysA, sysB, sysC, sysD);
+
+% Get bode-plot of system.
+%bode(sys)
+
+% Get bode-plot of linerized robot
+bode(G);
+bandwidth = bandwidth(G);
+hz_bw = bandwidth/(2*pi);

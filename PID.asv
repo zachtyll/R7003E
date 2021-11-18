@@ -41,9 +41,16 @@ Apre = [ 0, 1, 0, 0;
 % Derive correct A-matrix.
 A = inv(L) * Apre;
 
+% Beta matrix for simulation.
+%Bpre = [ 
+%    0, 0;
+%    K_t / R_m, l_w;
+%    0, 0;
+%    -K_t/R_m, l_b
+%    ];
+
 % Beta matrix.
 Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
-
 % Derive correct B-matrix.
 B = inv(L) * Bpre;
 
@@ -54,25 +61,28 @@ C = [0, 0, 1, 0];
 D = 0;
 
 % Define gains. (Can't be zero for some reason).
-K_p = 1;
-K_i = 1;
-K_d = 1;
-T_f = 1; % Derivative filter time constant.
+p = 2;
+Ki = -260.2962;
+Kd = -0.0969;
+Tf = 1; % Derivative filter time constant.
 
 % Add parts into state space form.
 G = ss(A,B,C,D);
 
 % Define PID controller.
-pid = pid(K_p, K_i, K_d);
+pid = pid(Kp, Ki, Kd, Tf);
 
 % Glue system together.
-sys = feedback(G, pid);
+sys = feedback(G * pid, -1);
 
 % Create a state space model of system.
-[sysA, sysB, sysC, sysD] = ssdata(sys);
+%[sysA, sysB, sysC, sysD] = ssdata(sys);
 
 % Transfer function of system.
-[num, den] = ss2tf(sysA, sysB, sysC, sysD);
+%[num, den] = ss2tf(sysA, sysB, sysC, sysD);
 
 % State space to pole-zero conversion.
+%[zeroes, poles, gain] = ss2zp(sysA, sysB, sysC, sysD);
 
+% Get bode-plot of system.
+%bode(sys);
