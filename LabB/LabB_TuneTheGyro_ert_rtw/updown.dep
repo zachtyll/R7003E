@@ -1,0 +1,31 @@
+updown.o: E:/MATLAB/rtw/c/src/ext_mode/common/updown.c \
+ E:/MATLAB-Projects/R7003E/LabB/LabB_TuneTheGyro_ert_rtw/rtwtypes.h \
+ E:/MATLAB/simulink/include/rtw_extmode.h \
+ E:/MATLAB/simulink/include/sysran_types.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/ext_types.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/ext_share.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/ext_svr.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/ext_work.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/updown_util.h \
+ E:/MATLAB/rtw/c/src/dt_info.h \
+ E:/MATLAB/rtw/c/src/ext_mode/common/upsup_public.h
+
+E:/MATLAB-Projects/R7003E/LabB/LabB_TuneTheGyro_ert_rtw/rtwtypes.h:
+
+E:/MATLAB/simulink/include/rtw_extmode.h:
+
+E:/MATLAB/simulink/include/sysran_types.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/ext_types.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/ext_share.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/ext_svr.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/ext_work.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/updown_util.h:
+
+E:/MATLAB/rtw/c/src/dt_info.h:
+
+E:/MATLAB/rtw/c/src/ext_mode/common/upsup_public.h:
