@@ -70,7 +70,7 @@ D = 0;
 % Define gains. (Can't be zero for some reason).
 Kp = 46;
 Ki = 260;
-Kd = 0.1;
+Kd = 0.2;
 
 % Add parts into state space form.
 G_new = ss(A,B,C_new,D);
@@ -92,13 +92,18 @@ sys_old = feedback(G_old * pid, -1);
 [num_old, den_old] = ss2tf(sysA_old, sysB_old, sysC_old, sysD_old);
 
 % State space to pole-zero conversion.
+[zeroes_nopid, poles_nopid, gain_nopid] = ss2zp(A, B, C_new, D);
 [zeroes_new, poles_new, gain_new] = ss2zp(sysA_new, sysB_new, sysC_new, sysD_new);
 [zeroes_old, poles_old, gain_old] = ss2zp(sysA_old, sysB_old, sysC_old, sysD_old);
+
+
+% pole-zero map
+pzmap(poles_nopid, zeroes_nopid)
 
 % Get bode-plot of system.
 %bode(sys)
 
 % Get bode-plot of linerized robot
-bode(G);
-bandwidth = bandwidth(G);
-hz_bw = bandwidth/(2*pi);
+% bode(G);
+% bandwidth = bandwidth(G);
+% hz_bw = bandwidth/(2*pi);
