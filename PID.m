@@ -59,7 +59,10 @@ Bpre = [ 0; K_t / R_m; 0; -K_t/R_m];
 B = inv(L) * Bpre;
 
 % C-matrix
-C = [0, 0, 1, 0];
+C_new = [1, 0, 1, 0];
+
+% Unchanged C-matrix
+C_old = [0, 0, 1, 0];
 
 % D-matrix.
 D = 0;
@@ -67,30 +70,36 @@ D = 0;
 % Define gains. (Can't be zero for some reason).
 Kp = 46;
 Ki = 260;
-Kd = 0.1;
+Kd = 0.2;
 
 % Add parts into state space form.
-G = ss(A,B,C,D);
+G_new = ss(A,B,C_new,D);
+G_old = ss(A,B,C_old,D);
 
 % Define PID controller.
 pid = pidstd(Kp, Ki, Kd);
 
 % Glue system together.
-sys = feedback(G * pid, -1);
+sys_new = feedback(G_new * pid, -1);
+sys_old = feedback(G_old * pid, -1);
 
 % Create a state space model of system.
-[sysA, sysB, sysC, sysD] = ssdata(sys);
+[sysA_new, sysB_new, sysC_new, sysD_new] = ssdata(sys_new);
+[sysA_old, sysB_old, sysC_old, sysD_old] = ssdata(sys_old);
 
 % Transfer function of system.
-[num, den] = ss2tf(sysA, sysB, sysC, sysD);
+[num_new, den_new] = ss2tf(sysA_new, sysB_new, sysC_new, sysD_new);
+[num_old, den_old] = ss2tf(sysA_old, sysB_old, sysC_old, sysD_old);
 
 % State space to pole-zero conversion.
-[zeroes, poles, gain] = ss2zp(sysA, sysB, sysC, sysD);
+[zeroes_nopid, poles_nopid, gain_nopid] = ss2zp(A, B, C_new, D);
+[zeroes_new, poles_new, gain_new] = ss2zp(sysA_new, sysB_new, sysC_new, sysD_new);
+[zeroes_old, poles_old, gain_old] = ss2zp(sysA_old, sysB_old, sysC_old, sysD_old);
 
 % Get bode-plot of system.
 %bode(sys)
 
 % Get bode-plot of linerized robot
-bode(G);
-bandwidth = bandwidth(G);
-hz_bw = bandwidth/(2*pi);
+% bode(G);
+% bandwidth = bandwidth(G);
+% hz_bw = bandwidth/(2*pi);

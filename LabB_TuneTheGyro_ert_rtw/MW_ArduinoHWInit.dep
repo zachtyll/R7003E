@@ -1,0 +1,47 @@
+MW_ArduinoHWInit.o: \
+ e:\matlab\supportpackages\toolbox\target\supportpackages\arduinotarget\src\mw_arduinohwinit.cpp \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h \
+ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/io_wrappers.h \
+ E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/rtwtypes.h \
+ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include/arduinoAVRScheduler.h \
+ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinotarget/include/MW_ArduinoHWInit.h
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h:
+
+E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/io_wrappers.h:
+
+E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/rtwtypes.h:
+
+E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include/arduinoAVRScheduler.h:
+
+E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinotarget/include/MW_ArduinoHWInit.h:

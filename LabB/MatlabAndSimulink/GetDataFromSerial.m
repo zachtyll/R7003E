@@ -1,8 +1,11 @@
 % % cleaning
-% clear all;
-% clc;
-% close all;
+ clear all;
+ clc;
+ close all;
 
+ 
+ fSamplingPeriod			= 0.005;
+ 
 
 % basic parameters
 % fSamplingPeriod	= should be already loaded in the workspace
