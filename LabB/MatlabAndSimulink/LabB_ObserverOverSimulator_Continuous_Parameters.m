@@ -84,10 +84,12 @@ L = Lt';
 
 % Partial observer
 % change of base
-TInv = [1, 0, 0, 0;
+TInv = [
+    1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1]
+    0, 0, 0, 1
+    ];
 
 T = inv(TInv);
 
