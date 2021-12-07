@@ -96,10 +96,4 @@ sys_old = feedback(G_old * pid, -1);
 [zeroes_new, poles_new, gain_new] = ss2zp(sysA_new, sysB_new, sysC_new, sysD_new);
 [zeroes_old, poles_old, gain_old] = ss2zp(sysA_old, sysB_old, sysC_old, sysD_old);
 
-% Get bode-plot of system.
-%bode(sys)
 
-% Get bode-plot of linerized robot
-% bode(G);
-% bandwidth = bandwidth(G);
-% hz_bw = bandwidth/(2*pi);
