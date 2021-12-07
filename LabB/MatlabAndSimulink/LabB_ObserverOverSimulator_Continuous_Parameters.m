@@ -2,7 +2,6 @@ close all;
 clear all;
 clc;
 
-
 % load the PID
 kP = -46.6;
 kI = -260;
@@ -30,10 +29,12 @@ L42 = m_b * l_b;
 L44 = I_b + m_b * l_b^(2);
 
 % Gamma matrix.
-L = [1, 0, 0, 0;
+L = [
+    1, 0, 0, 0;
     0, L22, 0, L24;
     0, 0, 1, 0;
-    0, L42, 0, L44];
+    0, L42, 0, L44
+    ];
 
 % Alfa matrix coeff.
 a22 = -(K_e * K_t) / (R_m * l_w);
@@ -65,7 +66,6 @@ C = [1, 0, 0, 0;
 
 % LQR weighting values.
 C_line = [20, .1, 5, .2];
-
 
 % D-matrix.
 D = 0;
@@ -105,28 +105,36 @@ C_tilde = C * T;
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
+% Partition A.
 Ayy = A_tilde(1, 1);
 Ayx = A_tilde(1, [2, 3, 4]);
 Axy = A_tilde([2, 3, 4], 1);
 Axx = A_tilde([2, 3, 4], [2, 3, 4]);
 
+% Partition B.
 By = B_tilde(1);
 Bx = B_tilde(2:4);
 
+% Partition C.
 Cy = C_tilde([1, 2], 1);
 Cx = C_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
+% Get gain L_p.
 Lt_p = place(Axx', ([Ayx; Cx])', pe([1, 2, 4]));
 L_p = Lt_p';
 %L_p = (place(Axx', Cx', pe([1, 2, 4])))';
 %L_p = (place(Axx', Cx', pe))';
 
+% Get L_p for accurate readings.
 L_p_acc = L_p([1:3], 1);
 %L_p_nacc = L_p([1:3], [1, 2]);
+
+% Get L_p for non-accurate readings.
 L_p_nacc = L_p([1:3], [2, 3]);
 
+% Set observer matrixes.
 M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
 M2 = (Bx - L_p_acc * By);
 M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
