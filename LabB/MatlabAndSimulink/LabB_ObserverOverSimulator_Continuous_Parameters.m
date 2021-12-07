@@ -1,7 +1,8 @@
 close all;
 clear all;
 clc;
-
+%%
+% Define constants.
 % load the PID
 kP = -46.6;
 kI = -260;
@@ -70,6 +71,8 @@ C_line = [20, .1, 5, .2];
 % D-matrix.
 D = 0;
 
+%%
+% Full order observer with LQR and place.
 % State space to zero-pole conversion.
 %[zeroes, poles, gain] = ss2zp(A, B, C, DAlt, 1);
 R = 1;
@@ -87,8 +90,10 @@ pe = e*6;
 Lt = place(A', C', pe);
 L = Lt';
 
+%%
 % Partial observer
-% change of basis.
+
+% Change of basis.
 TInv = [
     1, 0, 0, 0;
     0, 0, 1, 0;
@@ -98,10 +103,12 @@ TInv = [
 
 T = inv(TInv);
 
+% Define the new system variables.
 A_tilde = TInv * A * T;
 B_tilde = TInv * B;
 C_tilde = C * T;
 
+% Basis completion for C.
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
@@ -128,21 +135,19 @@ L_p = Lt_p';
 %L_p = (place(Axx', Cx', pe))';
 
 % Get L_p for accurate readings.
-L_p_acc = L_p([1:3], 1);
-%L_p_nacc = L_p([1:3], [1, 2]);
+L_p_acc = L_p(1:3, 1);
 
 % Get L_p for non-accurate readings.
-L_p_nacc = L_p([1:3], [2, 3]);
+L_p_nacc = L_p(1:3, [2, 3]);
 
 % Set observer matrixes.
 M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
 M2 = (Bx - L_p_acc * By);
 M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
-M4 = L_p_nacc([1:3],2);
-%M4 = L_p_nacc;
+M4 = L_p_nacc(1:3,2);
 M5 = L_p_acc;
-M6 = T([1:4], 1);
-M7 = T([1:4], [2:4]);
+M6 = T(1:4, 1);
+M7 = T(1:4, 2:4);
 
 
 % Partial observer
