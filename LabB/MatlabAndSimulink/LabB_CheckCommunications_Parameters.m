@@ -4,3 +4,5 @@ clc;
 
 fSamplingPeriod = 0.01;
 
+
+linux list groups
