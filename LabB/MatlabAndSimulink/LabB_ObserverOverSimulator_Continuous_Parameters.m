@@ -73,8 +73,6 @@ D = 0;
 
 %%
 % Full order observer with LQR and place.
-% State space to zero-pole conversion.
-%[zeroes, poles, gain] = ss2zp(A, B, C, DAlt, 1);
 R = 1;
 rho = 6;
 Q = rho*C_line'*C_line;
@@ -131,8 +129,6 @@ CC = [Ayx; Cx];
 % Get gain L_p.
 Lt_p = place(Axx', ([Ayx; Cx])', pe([1, 2, 4]));
 L_p = Lt_p';
-%L_p = (place(Axx', Cx', pe([1, 2, 4])))';
-%L_p = (place(Axx', Cx', pe))';
 
 % Get L_p for accurate readings.
 L_p_acc = L_p(1:3, 1);
