@@ -43,18 +43,18 @@ a43 = m_b * l_b * g;
 a44 = - a24;
 
 % Alfa matrix.
-Apre = [ 0, 1, 0, 0;
+Apre = [
+    0, 1, 0, 0;
     0, a22, 0, a24;
     0, 0, 0, 1;
-    0, a42, a43, a44];
+    0, a42, a43, a44
+    ];
 
 % Derive correct A-matrix.
 A = inv(L) * Apre;
 
-
 % Beta matrix.
 BpreAlt = [ 0; K_t / R_m; 0; -K_t/R_m];
-
 
 % Derive correct B-matrix.
 B = inv(L) * BpreAlt;
@@ -62,6 +62,8 @@ B = inv(L) * BpreAlt;
 % C-matrix
 C = [1, 0, 0, 0;
     0, 0, 1, 0];
+
+% LQR weighting values.
 C_line = [20, .1, 5, .2];
 
 
@@ -75,15 +77,18 @@ rho = 6;
 Q = rho*C_line'*C_line;
 [K, S, e] = lqr(A,B,Q,R);
 
+% Controller poles.
 pc = e;
+
+% Observer poles.
 pe = e*6;
 
-% Full Observer
+% Get full order observer gains.
 Lt = place(A', C', pe);
 L = Lt';
 
 % Partial observer
-% change of base
+% change of basis.
 TInv = [
     1, 0, 0, 0;
     0, 0, 1, 0;
