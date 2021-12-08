@@ -1,8 +1,8 @@
 close all;
 clear all;
 clc;
-
-
+%%
+% Define constants.
 % load the PID
 kP = -46.6;
 kI = -260;
@@ -30,10 +30,12 @@ L42 = m_b * l_b;
 L44 = I_b + m_b * l_b^(2);
 
 % Gamma matrix.
-L = [1, 0, 0, 0;
+L = [
+    1, 0, 0, 0;
     0, L22, 0, L24;
     0, 0, 1, 0;
-    0, L42, 0, L44];
+    0, L42, 0, L44
+    ];
 
 % Alfa matrix coeff.
 a22 = -(K_e * K_t) / (R_m * l_w);
@@ -43,18 +45,18 @@ a43 = m_b * l_b * g;
 a44 = - a24;
 
 % Alfa matrix.
-Apre = [ 0, 1, 0, 0;
+Apre = [
+    0, 1, 0, 0;
     0, a22, 0, a24;
     0, 0, 0, 1;
-    0, a42, a43, a44];
+    0, a42, a43, a44
+    ];
 
 % Derive correct A-matrix.
 A = inv(L) * Apre;
 
-
 % Beta matrix.
 BpreAlt = [ 0; K_t / R_m; 0; -K_t/R_m];
-
 
 % Derive correct B-matrix.
 B = inv(L) * BpreAlt;
@@ -62,14 +64,15 @@ B = inv(L) * BpreAlt;
 % C-matrix
 C = [1, 0, 0, 0;
     0, 0, 1, 0];
-C_line = [20, .1, 5, .2];
 
+% LQR weighting values.
+C_line = [20, .1, 5, .2];
 
 % D-matrix.
 D = 0;
 
-% State space to zero-pole conversion.
-%[zeroes, poles, gain] = ss2zp(A, B, C, DAlt, 1);
+%%
+% Full order observer with LQR and place.
 R = 1;
 rho = 6;
 Q = rho*C_line'*C_line;
@@ -78,57 +81,66 @@ Q = rho*C_line'*C_line;
 pc = [-20, -20, -40, -2860];
 pe = pc;
 
-% Full Observer
+% Get full order observer gains.
 Lt = place(A', C', pe);
 L = Lt';
 
+%%
 % Partial observer
-% change of base
-TInv = [1, 0, 0, 0;
+
+% Change of basis.
+TInv = [
+    1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1]
+    0, 0, 0, 1
+    ];
 
 T = inv(TInv);
 
+% Define the new system variables.
 A_tilde = TInv * A * T;
 B_tilde = TInv * B;
 C_tilde = C * T;
 
+% Basis completion for C.
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
+% Partition A.
 Ayy = A_tilde(1, 1);
 Ayx = A_tilde(1, [2, 3, 4]);
 Axy = A_tilde([2, 3, 4], 1);
 Axx = A_tilde([2, 3, 4], [2, 3, 4]);
 
+% Partition B.
 By = B_tilde(1);
 Bx = B_tilde(2:4);
 
+% Partition C.
 Cy = C_tilde([1, 2], 1);
 Cx = C_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
+% Get gain L_p.
 Lt_p = place(Axx', ([Ayx; Cx])', pe([1, 2, 4]));
 L_p = Lt_p';
-%L_p = (place(Axx', Cx', pe([1, 2, 4])))';
-%L_p = (place(Axx', Cx', pe))';
 
-L_p_acc = L_p([1:3], 1);
-%L_p_nacc = L_p([1:3], [1, 2]);
-L_p_nacc = L_p([1:3], [2, 3]);
+% Get L_p for accurate readings.
+L_p_acc = L_p(1:3, 1);
 
-M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
-M2 = (Bx - L_p_acc * By)
-M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
-M4 = L_p_nacc([1:3],2)
-%M4 = L_p_nacc;
-M5 = L_p_acc
-M6 = T([1:4], 1)
-M7 = T([1:4], [2:4])
+% Get L_p for non-accurate readings.
+L_p_nacc = L_p(1:3, [2, 3]);
 
+% Set observer matrixes.
+M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
+M2 = (Bx - L_p_acc * By);
+M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
+M4 = L_p_nacc(1:3,2);
+M5 = L_p_acc;
+M6 = T(1:4, 1);
+M7 = T(1:4, 2:4);
 
 % Partial observer
 % M1 = 1.0e+03 * [
