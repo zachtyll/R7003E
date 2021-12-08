@@ -6,7 +6,10 @@ iNumberOfEncoderSteps	= 720;
 fGyroConversionFactor	= 250/32768;%-1/131;
 fWheelRadius			= 0.0216; % [m]
 load('GyroBias.mat');
- 
+
+%%
+% Constants and system definition.
+
 % Define constants.
 g = 9.8;
 b_f = 0;
@@ -65,6 +68,8 @@ D = 0;
 C = [1, 0, 0, 0;
     0, 0, 1, 0];
 
+%%
+
 % LQR priority weigths.
 C_prio = [20, .1, 5, .2];
 
@@ -80,10 +85,10 @@ descrete_sys = c2d(ss(A, B, C, D), fSamplingPeriod);
 % Create state-space equation of discrete matrixes.
 [Ad, Bd, Cd, Dd] = ssdata(descrete_sys);
 
-% map the poles
+% Convert the poles to z-space.
 zeds = exp(c_poles .* fSamplingPeriod);
 
-% Get gain for discrete poles.
+% Get control law gain for discrete poles.
 Kd = place(Ad, Bd, zeds);
 
 % Define discrete observer poles.
@@ -140,10 +145,11 @@ L_p = Lt_p';
 L_p_acc = L_p(1:3, 1);
 L_p_nacc = L_p(1:3, [2, 3]);
 
+% Observer gain matrixes.
 Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
 Md2 = (Bx - L_p_acc * By);
 Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
 Md4 = L_p_nacc(1:3,2);
 Md5 = L_p_acc;
 Md6 = T(1:4, 1);
-Md7 = T([1:4], [2:4]);
+Md7 = T(1:4, 2:4);
