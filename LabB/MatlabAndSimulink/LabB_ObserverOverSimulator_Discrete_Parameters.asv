@@ -65,6 +65,8 @@ C = [1, 0, 0, 0;
     0, 0, 1, 0];
 C_line = [20, .1, 5, .2];
 
+
+
 % D-matrix.
 D = 0;
 
@@ -78,7 +80,7 @@ Q = rho*C_line'*C_line;
 pc = [-20, -20, -40, -2860];
 pe = pc;
 
-descrete_sys = c2d(ss(A, B, C, D), fSamplingPeriod);
+descrete_sys = c2d(ss(A, B, CAlt, D), fSamplingPeriod);
 [Ad, Bd, Cd, Dd] = ssdata(descrete_sys);
 
 
@@ -87,8 +89,8 @@ zeds = exp(pc .* fSamplingPeriod);
 
 
 % Full Observer
-Lt = place(Ad', Cd', zeds);
-Ld = Lt';
+Lt = place(Ad', Cd', pe);
+L = Lt';
 
 % Partial observer
 % change of base
@@ -99,27 +101,27 @@ TInv = [1, 0, 0, 0;
 
 T = inv(TInv);
 
-Ad_tilde = TInv * Ad * T;
-Bd_tilde = TInv * Bd;
-Cd_tilde = Cd * T;
+A_tilde = TInv * A * T;
+B_tilde = TInv * B;
+C_tilde = C * T;
 
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
-Ayy = Ad_tilde(1, 1);
-Ayx = Ad_tilde(1, [2, 3, 4]);
-Axy = Ad_tilde([2, 3, 4], 1);
-Axx = Ad_tilde([2, 3, 4], [2, 3, 4]);
+Ayy = A_tilde(1, 1);
+Ayx = A_tilde(1, [2, 3, 4]);
+Axy = A_tilde([2, 3, 4], 1);
+Axx = A_tilde([2, 3, 4], [2, 3, 4]);
 
-By = Bd_tilde(1);
-Bx = Bd_tilde(2:4);
+By = B_tilde(1);
+Bx = B_tilde(2:4);
 
-Cy = Cd_tilde([1, 2], 1);
-Cx = Cd_tilde([1, 2], [2, 3, 4]);
+Cy = C_tilde([1, 2], 1);
+Cx = C_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
-Lt_p = place(Axx', ([Ayx; Cx])', zeds([1, 2, 4]));
+Lt_p = place(Axx', ([Ayx; Cx])', pe([1, 2, 4]));
 L_p = Lt_p';
 %L_p = (place(Axx', Cx', pe([1, 2, 4])))';
 %L_p = (place(Axx', Cx', pe))';
@@ -128,14 +130,14 @@ L_p_acc = L_p([1:3], 1);
 %L_p_nacc = L_p([1:3], [1, 2]);
 L_p_nacc = L_p([1:3], [2, 3]);
 
-Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
-Md2 = (Bx - L_p_acc * By)
-Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
-Md4 = L_p_nacc([1:3],2)
+M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
+M2 = (Bx - L_p_acc * By)
+M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
+M4 = L_p_nacc([1:3],2)
 %M4 = L_p_nacc;
-Md5 = L_p_acc
-Md6 = T([1:4], 1)
-Md7 = T([1:4], [2:4])
+M5 = L_p_acc
+M6 = T([1:4], 1)
+M7 = T([1:4], [2:4])
 
 
 

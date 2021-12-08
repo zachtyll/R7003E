@@ -75,8 +75,8 @@ rho = 6;
 Q = rho*C_line'*C_line;
 [K, S, e] = lqr(A,B,Q,R);
 
-pc = e;
-pe = e*6;
+pc = [-20, -20, -40, -2860];
+pe = pc;
 
 % Full Observer
 Lt = place(A', C', pe);
@@ -120,14 +120,14 @@ L_p_acc = L_p([1:3], 1);
 %L_p_nacc = L_p([1:3], [1, 2]);
 L_p_nacc = L_p([1:3], [2, 3]);
 
-M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
-M2 = (Bx - L_p_acc * By);
-M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
-M4 = L_p_nacc([1:3],2);
+M1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
+M2 = (Bx - L_p_acc * By)
+M3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
+M4 = L_p_nacc([1:3],2)
 %M4 = L_p_nacc;
-M5 = L_p_acc;
-M6 = T([1:4], 1);
-M7 = T([1:4], [2:4]);
+M5 = L_p_acc
+M6 = T([1:4], 1)
+M7 = T([1:4], [2:4])
 
 
 % Partial observer
