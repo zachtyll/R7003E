@@ -9,7 +9,7 @@
  *
  * Model version                  : 8.0
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Wed Dec  8 11:55:53 2021
+ * C/C++ source code generated on : Wed Dec  8 14:36:28 2021
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -89,7 +89,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: fGyroBias
    * Referenced by: '<S2>/gyro bias'
    */
-  -172.44278F,
+  -141.317963F,
 
   /* Variable: fWheelRadius
    * Referenced by: '<S2>/convert to meters'
@@ -359,7 +359,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Computed Parameter: ManualSwitch_CurrentSetting
    * Referenced by: '<S4>/Manual Switch'
    */
-  1U,
+  0U,
 
   /* Computed Parameter: ManualSwitch1_CurrentSetting
    * Referenced by: '<S4>/Manual Switch1'

@@ -2,7 +2,7 @@
 ## Makefile generated for component 'LabB_ObserverAndControllerOverRobot'. 
 ## 
 ## Makefile     : LabB_ObserverAndControllerOverRobot.mk
-## Generated on : Wed Dec 08 10:32:07 2021
+## Generated on : Wed Dec 08 14:36:33 2021
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/LabB_ObserverAndControllerOverRobot.elf
 ## Product type : executable
 ## 
@@ -199,7 +199,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/include -I$(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src -I$(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/utility -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src/utility -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/svd/include -I$(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/externalmode_daemon/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/include -I$(MATLAB_ROOT)/RASPlib/RASPlib/src -I$(MATLAB_ROOT)/RASPlib/RASPlib/include -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/utility -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src/utility -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/svd/include -I$(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/externalmode_daemon/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -220,7 +220,7 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_SerialRead.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_SerialWrite.cpp $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/blocks/../src/encoder_arduino.cpp Wire.cpp twi.c I2Cdev.cpp MPU6050.cpp MPU6050wrapper.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/LabB_ObserverAndControllerOverRobot.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/LabB_ObserverAndControllerOverRobot_data.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rtGetInf.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rtGetNaN.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp
+SRCS = $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_SerialRead.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_SerialWrite.cpp $(MATLAB_ROOT)/RASPlib/RASPlib/blocks/../src/encoder_arduino.cpp Wire.cpp twi.c I2Cdev.cpp MPU6050.cpp MPU6050wrapper.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_PWM.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_PWMDriver.c $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/ArduinoPinHandleMap.cpp $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/LabB_ObserverAndControllerOverRobot.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/LabB_ObserverAndControllerOverRobot_data.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rtGetInf.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rtGetNaN.c $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/src/io_wrappers.cpp $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/registry/../scheduler/src/arduinoAVRScheduler.cpp
 
 MAIN_SRC = $(START_DIR)/LabB_ObserverAndControllerOverRobot_ert_rtw/ert_main.c
 
@@ -521,19 +521,19 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.c
+%.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.S.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.s
+%.S.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.s
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-%.S.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.S
+%.S.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.S
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-%.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.cpp
+%.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -593,7 +593,7 @@ MW_SerialWrite.o : $(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-encoder_arduino.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/blocks/../src/encoder_arduino.cpp
+encoder_arduino.o : $(MATLAB_ROOT)/RASPlib/RASPlib/blocks/../src/encoder_arduino.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

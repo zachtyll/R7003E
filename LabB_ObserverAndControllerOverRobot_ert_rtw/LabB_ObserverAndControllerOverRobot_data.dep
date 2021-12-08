@@ -8,8 +8,8 @@ LabB_ObserverAndControllerOverRobot_data.o: \
  E:/MATLAB/simulink/include/rtw_continuous.h \
  E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_SerialRead.h \
  E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_SerialWrite.h \
- E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/encoder_arduino.h \
- E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/MPU6050wrapper.h \
+ E:/MATLAB/RASPlib/RASPlib/include/encoder_arduino.h \
+ E:/MATLAB/RASPlib/RASPlib/include/MPU6050wrapper.h \
  E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_arduino_digitalio.h \
  E:/MATLAB/SupportPackages/toolbox/target/shared/svd/include/MW_PWM.h \
  E:/MATLAB/SupportPackages/toolbox/target/shared/svd/include/MW_SVD.h \
@@ -41,9 +41,9 @@ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_
 
 E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_SerialWrite.h:
 
-E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/encoder_arduino.h:
+E:/MATLAB/RASPlib/RASPlib/include/encoder_arduino.h:
 
-E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/MPU6050wrapper.h:
+E:/MATLAB/RASPlib/RASPlib/include/MPU6050wrapper.h:
 
 E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_arduino_digitalio.h:
 
