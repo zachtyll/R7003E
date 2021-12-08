@@ -9,7 +9,7 @@
  *
  * Model version                  : 8.0
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Wed Dec  8 14:36:28 2021
+ * C/C++ source code generated on : Wed Dec  8 16:03:11 2021
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -47,34 +47,34 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: Ld
    * Referenced by: '<S4>/Gain9'
    */
-  { 0.0529045463F, -1.86058342F, -0.0184136741F, 8.13541F, -0.0143024866F,
-    7.40199947F, 0.225251213F, -31.0856037F },
+  { 0.0810611174F, -1.81549108F, -0.018247446F, 7.9417963F, -0.0171069838F,
+    7.71771669F, 0.187712684F, -33.0328903F },
 
   /* Variable: Md1
    * Referenced by: '<S4>/Gain'
    */
-  { 0.938773155F, -0.109824173F, 0.357907474F, -0.10007444F, 0.0688941181F,
-    2.87545443F, 0.00166310195F, 0.0146632204F, 0.903443277F },
+  { 0.96092993F, -0.0982856452F, 0.244321048F, -0.0881998F, 0.0551801175F,
+    2.24188137F, 0.00198808825F, 0.0142878937F, 0.88610357F },
 
   /* Variable: Md2
    * Referenced by: '<S4>/Gain1'
    */
-  { -0.00752623193F, 0.0330980457F, -0.218872309F },
+  { -0.00679340074F, 0.0322517F, -0.257972628F },
 
   /* Variable: Md3
    * Referenced by: '<S4>/Gain2'
    */
-  { -51.8400955F, -46.2637177F, -350.42627F },
+  { -46.3663406F, -52.5853539F, -642.479431F },
 
   /* Variable: Md4
    * Referenced by: '<S4>/Gain3'
    */
-  { 0.063670665F, 0.101922862F, -0.126941904F },
+  { 0.0413189828F, 0.0906094834F, -0.00295398F },
 
   /* Variable: Md5
    * Referenced by: '<S4>/Gain4'
    */
-  { 51.8400955F, 46.2637177F, 350.42627F },
+  { 46.3663406F, 52.5853539F, 642.479431F },
 
   /* Variable: Md6
    * Referenced by: '<S4>/Gain5'
@@ -89,7 +89,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: fGyroBias
    * Referenced by: '<S2>/gyro bias'
    */
-  -141.317963F,
+  -159.158539F,
 
   /* Variable: fWheelRadius
    * Referenced by: '<S2>/convert to meters'
@@ -359,7 +359,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Computed Parameter: ManualSwitch_CurrentSetting
    * Referenced by: '<S4>/Manual Switch'
    */
-  0U,
+  1U,
 
   /* Computed Parameter: ManualSwitch1_CurrentSetting
    * Referenced by: '<S4>/Manual Switch1'

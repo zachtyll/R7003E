@@ -92,7 +92,7 @@ zeds = exp(c_poles .* fSamplingPeriod);
 Kd = place(Ad, Bd, zeds);
 
 % Define discrete observer poles.
-c_oPoles = [-10, -10, -20, -950];
+c_oPoles = [-6, -16, -16, -950];
 zeds_o = exp(c_oPoles .* fSamplingPeriod);
 
 %%
