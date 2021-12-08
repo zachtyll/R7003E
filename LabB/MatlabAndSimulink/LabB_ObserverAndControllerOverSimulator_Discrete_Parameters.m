@@ -4,6 +4,12 @@ close all;
 clear all;
 clc;
 
+% DO NOT MODIFY THIS!
+iNumberOfEncoderSteps	= 720;
+fGyroConversionFactor	= -1/131;
+fWheelRadius			= 0.0216; % [m]
+load('GyroBias.mat');
+
 % select the sampling time
 fSamplingPeriod = 0.005;
 

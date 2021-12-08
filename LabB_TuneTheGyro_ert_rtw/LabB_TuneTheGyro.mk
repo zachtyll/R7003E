@@ -2,7 +2,7 @@
 ## Makefile generated for component 'LabB_TuneTheGyro'. 
 ## 
 ## Makefile     : LabB_TuneTheGyro.mk
-## Generated on : Tue Nov 30 13:50:30 2021
+## Generated on : Wed Dec 08 10:23:28 2021
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/LabB_TuneTheGyro.elf
 ## Product type : executable
 ## 
@@ -199,7 +199,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/utility -I$(MATLAB_ROOT)/RASPlib/RASPlib/include -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src/utility -I$(START_DIR)/LabB_TuneTheGyro_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/externalmode_daemon/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/utility -I$(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src -I$(MATLAB_ROOT)/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/libraries/Wire/src/utility -I$(START_DIR)/LabB_TuneTheGyro_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(ARDUINO_ROOT)/hardware/arduino/avr/cores/arduino -I$(ARDUINO_ROOT)/hardware/arduino/avr/variants/mega -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinotarget/scheduler/include -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/supportpackages/arduinobase/include -I$(ARDUINO_ROOT)/hardware/tools/avr/avr/include/avr -I$(MATLAB_ROOT)/SupportPackages/toolbox/target/shared/externalmode_daemon/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -505,19 +505,19 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.c
+%.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.S.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.s
+%.S.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.s
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-%.S.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.S
+%.S.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.S
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-%.o : $(MATLAB_ROOT)/RASPlib/RASPlib/src/%.cpp
+%.o : $(START_DIR)/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

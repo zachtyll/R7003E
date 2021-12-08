@@ -1,0 +1,41 @@
+MW_arduino_digitalio.o: \
+ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/src/MW_arduino_digitalio.cpp \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h \
+ E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h \
+ E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_arduino_digitalio.h \
+ E:/MATLAB-Projects/R7003E/LabB_ObserverAndControllerOverRobot_ert_rtw/rtwtypes.h
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/binary.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WCharacter.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/WString.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Stream.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Print.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Printable.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/USBAPI.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+E:/MATLAB/SupportPackages/3P.instrset/arduinoide.instrset/hardware/arduino/avr/variants/mega/pins_arduino.h:
+
+E:/MATLAB/SupportPackages/toolbox/target/supportpackages/arduinobase/include/MW_arduino_digitalio.h:
+
+E:/MATLAB-Projects/R7003E/LabB_ObserverAndControllerOverRobot_ert_rtw/rtwtypes.h:

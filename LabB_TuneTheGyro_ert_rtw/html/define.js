@@ -645,11 +645,11 @@ function Html2SrcLink() {
 	this.html2Root["LabB_TuneTheGyro_dt_h.html"] = "LabB_TuneTheGyro_dt_h.html";
 	this.html2SrcPath["rtmodel_h.html"] = "../rtmodel.h";
 	this.html2Root["rtmodel_h.html"] = "rtmodel_h.html";
-	this.html2SrcPath["I2Cdev_cpp.html"] = "../../../../MATLAB/RASPlib/RASPlib/src/I2Cdev.cpp";
+	this.html2SrcPath["I2Cdev_cpp.html"] = "../../LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/I2Cdev.cpp";
 	this.html2Root["I2Cdev_cpp.html"] = "I2Cdev_cpp.html";
-	this.html2SrcPath["MPU6050_cpp.html"] = "../../../../MATLAB/RASPlib/RASPlib/src/MPU6050.cpp";
+	this.html2SrcPath["MPU6050_cpp.html"] = "../../LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/MPU6050.cpp";
 	this.html2Root["MPU6050_cpp.html"] = "MPU6050_cpp.html";
-	this.html2SrcPath["MPU6050wrapper_cpp.html"] = "../../../../MATLAB/RASPlib/RASPlib/src/MPU6050wrapper.cpp";
+	this.html2SrcPath["MPU6050wrapper_cpp.html"] = "../../LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/src/MPU6050wrapper.cpp";
 	this.html2Root["MPU6050wrapper_cpp.html"] = "MPU6050wrapper_cpp.html";
 	this.html2SrcPath["MW_ArduinoHWInit_cpp.html"] = "../../../../MATLAB/SupportPackages/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp";
 	this.html2Root["MW_ArduinoHWInit_cpp.html"] = "MW_ArduinoHWInit_cpp.html";

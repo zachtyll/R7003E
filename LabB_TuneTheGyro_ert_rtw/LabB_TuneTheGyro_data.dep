@@ -11,7 +11,7 @@ LabB_TuneTheGyro_data.o: \
  E:/MATLAB/rtw/c/src/dt_info.h \
  E:/MATLAB/rtw/c/src/ext_mode/common/ext_work.h \
  E:/MATLAB/rtw/c/src/ext_mode/common/ext_types.h \
- E:/MATLAB/RASPlib/RASPlib/include/MPU6050wrapper.h \
+ E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/MPU6050wrapper.h \
  E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/LabB_TuneTheGyro_types.h \
  E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/multiword_types.h \
  E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/MW_target_hardware_resources.h \
@@ -44,7 +44,7 @@ E:/MATLAB/rtw/c/src/ext_mode/common/ext_work.h:
 
 E:/MATLAB/rtw/c/src/ext_mode/common/ext_types.h:
 
-E:/MATLAB/RASPlib/RASPlib/include/MPU6050wrapper.h:
+E:/MATLAB-Projects/R7003E/LabB/RensselaerArduinoSupportPackageLibrary/RASPlib/include/MPU6050wrapper.h:
 
 E:/MATLAB-Projects/R7003E/LabB_TuneTheGyro_ert_rtw/LabB_TuneTheGyro_types.h:
 
