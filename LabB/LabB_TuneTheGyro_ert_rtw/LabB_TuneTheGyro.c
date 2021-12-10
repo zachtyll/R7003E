@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'LabB_TuneTheGyro'.
  *
- * Model version                  : 2.0
+ * Model version                  : 2.1
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Mon Nov 29 16:57:01 2021
+ * C/C++ source code generated on : Fri Dec 10 15:20:15 2021
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -135,10 +135,10 @@ void LabB_TuneTheGyro_initialize(void)
   LabB_TuneTheGyro_M->Timing.stepSize0 = 0.01;
 
   /* External mode info */
-  LabB_TuneTheGyro_M->Sizes.checksums[0] = (3103052598U);
-  LabB_TuneTheGyro_M->Sizes.checksums[1] = (3841110203U);
-  LabB_TuneTheGyro_M->Sizes.checksums[2] = (3683616103U);
-  LabB_TuneTheGyro_M->Sizes.checksums[3] = (624823245U);
+  LabB_TuneTheGyro_M->Sizes.checksums[0] = (2715781865U);
+  LabB_TuneTheGyro_M->Sizes.checksums[1] = (211134386U);
+  LabB_TuneTheGyro_M->Sizes.checksums[2] = (1436242708U);
+  LabB_TuneTheGyro_M->Sizes.checksums[3] = (1713423477U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;

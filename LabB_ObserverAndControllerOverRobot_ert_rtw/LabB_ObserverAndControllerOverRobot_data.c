@@ -9,7 +9,7 @@
  *
  * Model version                  : 8.0
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Wed Dec  8 16:03:11 2021
+ * C/C++ source code generated on : Fri Dec 10 13:57:39 2021
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
@@ -25,14 +25,14 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: Ad
    * Referenced by: '<S4>/Gain7'
    */
-  { 1.0F, 0.0F, 0.0F, 0.0F, 0.00216937577F, 0.169257507F, 0.0123862131F,
-    3.63566065F, -3.56150304E-5F, -0.00954899471F, 1.0005976F, 0.218485147F,
-    5.93717268E-5F, 0.0174099766F, 0.00474093808F, 0.924248695F },
+  { 1.0F, 0.0F, 0.0F, 0.0F, 0.00477844337F, 0.0838334709F, 0.128632188F,
+    4.08114815F, -6.38453203E-5F, 0.0087372819F, 1.02077794F, 1.17174911F,
+    0.00061079982F, 0.0191756524F, 0.0315431952F, 0.935073912F },
 
   /* Variable: Bd
    * Referenced by: '<S4>/Gain8'
    */
-  { 0.00013388088F, 0.0392918736F, -0.000585834379F, -0.171956927F },
+  { 0.00138210063F, 0.0433322F, -0.00608395459F, -0.193027273F },
 
   /* Variable: Cd
    * Referenced by: '<S4>/Gain10'
@@ -42,39 +42,39 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: Kd
    * Referenced by: '<S1>/controller'
    */
-  { -38.6588631F, -53.5838661F, -77.0815277F, -12.3911114F },
+  { -32.016716F, -48.486393F, -69.71241F, -11.2112541F },
 
   /* Variable: Ld
    * Referenced by: '<S4>/Gain9'
    */
-  { 0.0810611174F, -1.81549108F, -0.018247446F, 7.9417963F, -0.0171069838F,
-    7.71771669F, 0.187712684F, -33.0328903F },
+  { 0.566476941F, 0.0244672243F, 0.037761692F, 0.513198853F, 0.0150958207F,
+    0.189406723F, 1.14759398F, 9.80976295F },
 
   /* Variable: Md1
    * Referenced by: '<S4>/Gain'
    */
-  { 0.96092993F, -0.0982856452F, 0.244321048F, -0.0881998F, 0.0551801175F,
-    2.24188137F, 0.00198808825F, 0.0142878937F, 0.88610357F },
+  { 0.613424599F, 0.0485595912F, 0.0146188084F, 0.0592681915F, 0.290536553F,
+    0.0645268634F, 0.0226768125F, 0.0455972701F, 0.421653271F },
 
   /* Variable: Md2
    * Referenced by: '<S4>/Gain1'
    */
-  { -0.00679340074F, 0.0322517F, -0.257972628F },
+  { -0.0261465572F, 0.103118293F, -1.35478103F },
 
   /* Variable: Md3
    * Referenced by: '<S4>/Gain2'
    */
-  { -46.3663406F, -52.5853539F, -642.479431F },
+  { -14.5160217F, 43.2574081F, -840.571045F },
 
   /* Variable: Md4
    * Referenced by: '<S4>/Gain3'
    */
-  { 0.0413189828F, 0.0906094834F, -0.00295398F },
+  { 0.408280164F, -0.0425840914F, 1.21079683F },
 
   /* Variable: Md5
    * Referenced by: '<S4>/Gain4'
    */
-  { 46.3663406F, 52.5853539F, 642.479431F },
+  { 14.5160217F, -43.2574081F, 840.571045F },
 
   /* Variable: Md6
    * Referenced by: '<S4>/Gain5'
@@ -89,7 +89,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Variable: fGyroBias
    * Referenced by: '<S2>/gyro bias'
    */
-  -159.158539F,
+  -171.210785F,
 
   /* Variable: fWheelRadius
    * Referenced by: '<S2>/convert to meters'
@@ -129,12 +129,12 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Computed Parameter: TSamp_WtEt
    * Referenced by: '<S5>/TSamp'
    */
-  200.0F,
+  29.4117641F,
 
   /* Computed Parameter: DiscreteTimeIntegratorconvertfr
    * Referenced by: '<S2>/Discrete-Time  Integrator (convert from theta_b_dot to theta_b)'
    */
-  0.005F,
+  0.034F,
 
   /* Computed Parameter: DiscreteTimeIntegratorconvert_e
    * Referenced by: '<S2>/Discrete-Time  Integrator (convert from theta_b_dot to theta_b)'
@@ -144,7 +144,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Computed Parameter: TSamp_WtEt_m
    * Referenced by: '<S6>/TSamp'
    */
-  200.0F,
+  29.4117641F,
 
   /* Computed Parameter: Internal_1_1_A
    * Referenced by: '<S7>/Internal_1_1'
@@ -359,7 +359,7 @@ Parameters_LabB_ObserverAndCont LabB_ObserverAndControllerOve_P = {
   /* Computed Parameter: ManualSwitch_CurrentSetting
    * Referenced by: '<S4>/Manual Switch'
    */
-  1U,
+  0U,
 
   /* Computed Parameter: ManualSwitch1_CurrentSetting
    * Referenced by: '<S4>/Manual Switch1'

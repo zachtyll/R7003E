@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'LabB_TuneTheGyro'.
  *
- * Model version                  : 2.0
+ * Model version                  : 2.1
  * Simulink Coder version         : 9.4 (R2020b) 29-Jul-2020
- * C/C++ source code generated on : Mon Nov 29 16:57:01 2021
+ * C/C++ source code generated on : Fri Dec 10 15:20:15 2021
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Atmel->AVR
