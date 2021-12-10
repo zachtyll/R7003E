@@ -83,7 +83,7 @@ pe = pc;
 
 % Get full order observer gains.
 Lt = place(A', C', pe);
-L = Lt';
+L = Lt'
 
 %%
 % Partial observer

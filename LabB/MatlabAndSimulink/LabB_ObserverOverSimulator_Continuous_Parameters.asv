@@ -80,7 +80,7 @@ pe = e*65;
 
 % Full Observer
 Lt = place(A', C', pe);
-L = Lt';
+L = Lt'
 
 % Partial observer
 % change of base

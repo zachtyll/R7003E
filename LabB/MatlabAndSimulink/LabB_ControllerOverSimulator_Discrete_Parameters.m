@@ -3,7 +3,9 @@ clear all;
 clc;
 
 % select the sampling time
-fSamplingPeriod = 0.005;
+sampling_frec = 200;
+
+fSamplingPeriod = round(1/sampling_frec, 3)
 
 %Kd = [-8.1792  -49.1223  -71.4928  -11.5909];
  
@@ -73,28 +75,20 @@ C_line = [20, .1, 5, .2];
 % State space to zero-pole conversion.
 %[zeroes, poles, gain] = ss2zp(A, B, C, DAlt, 1);
 R = 1;
-rho = 6;
+rho = 4;
 Q = rho*C_line'*C_line;
-[K, S, c_poles] = lqr(A,B,Q,R);
 
 descrete_sys = c2d(ss(A, B, C, D), fSamplingPeriod);
 
 [Ad, Bd, Cd, Dd] = ssdata(descrete_sys);
 
+[Kd, S, cdpoles] = dlqr(Ad, Bd, Q, R);
 
-% map the poles
-zeds = exp(c_poles .* fSamplingPeriod);
-
-Kd = place(Ad, Bd, zeds);
-
-pc = [-20, -20, -40, -2860];
-
-% map the poles
-zeds = exp(pc .* fSamplingPeriod);
+odpoles = exp(6 .* log(cdpoles));
 
 
 % Full Observer
-Lt = place(Ad', Cd', zeds);
+Lt = place(Ad', Cd', odpoles);
 Ld = Lt';
 
 % Partial observer
@@ -102,7 +96,7 @@ Ld = Lt';
 TInv = [1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1]
+    0, 0, 0, 1];
 
 T = inv(TInv);
 
@@ -126,7 +120,7 @@ Cx = Cd_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
-Lt_p = place(Axx', ([Ayx; Cx])', zeds([1, 2, 4]));
+Lt_p = place(Axx', ([Ayx; Cx])', odpoles([1, 2, 3]));
 L_p = Lt_p';
 %L_p = (place(Axx', Cx', pe([1, 2, 4])))';
 %L_p = (place(Axx', Cx', pe))';
@@ -135,12 +129,12 @@ L_p_acc = L_p([1:3], 1);
 %L_p_nacc = L_p([1:3], [1, 2]);
 L_p_nacc = L_p([1:3], [2, 3]);
 
-Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
-Md2 = (Bx - L_p_acc * By)
-Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
-Md4 = L_p_nacc([1:3],2)
+Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
+Md2 = (Bx - L_p_acc * By);
+Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
+Md4 = L_p_nacc([1:3],2);
 %M4 = L_p_nacc;
-Md5 = L_p_acc
-Md6 = T([1:4], 1)
-Md7 = T([1:4], [2:4])
+Md5 = L_p_acc;
+Md6 = T([1:4], 1);
+Md7 = T([1:4], [2:4]);
 
