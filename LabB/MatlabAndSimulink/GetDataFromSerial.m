@@ -3,8 +3,10 @@
  clc;
  close all;
 
- 
- fSamplingPeriod			= 0.005;
+% select the sampling time
+sampling_frec = 200;
+% fSamplingPeriod = 0.005;
+fSamplingPeriod = round(1/sampling_frec, 3);
  
 
 % basic parameters
@@ -142,7 +144,11 @@ fprintf('Closing the serial communications...');
 fclose(tSerialCommunication);
 delete(tSerialCommunication);
 clear tSerialCommunication;
-fprintf('...done\n');
+fprintf('...done reading!\n');
 
-
+% Auto-write info to file.
+fprintf('Writing to .csv-format.');
+writematrix(afTimes', 'afTimes' + string(sampling_frec) + '.csv');
+writematrix(aafProcessedInformation, 'Info' + string(sampling_frec) + '.csv');
+fprintf('...done writing!\n');
 

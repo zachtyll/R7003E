@@ -1,16 +1,22 @@
-% select the sampling time
-fSamplingPeriod = 0.005;
+close all;
+clear all;
+clc;
 
-% DO NOT MODIFY THIS!
+%% DO NOT MODIFY THIS!
 iNumberOfEncoderSteps	= 720;
-fGyroConversionFactor	= 250/32768;%-1/131;
+fGyroConversionFactor	= 250/32768;
 fWheelRadius			= 0.0216; % [m]
 load('GyroBias.mat');
 
-%%
-% Constants and system definition.
+%% Define constants.
 
-% Define constants.
+% select the sampling time
+sampling_frec = 200;
+
+fSamplingPeriod = round(1/sampling_frec, 3);
+% fSamplingPeriod = 0.005;
+
+
 g = 9.8;
 b_f = 0;
 m_b = 0.381;
@@ -53,72 +59,62 @@ alfa = [ 0, 1, 0, 0;
 % Derive correct A-matrix.
 A = inv(gamma) * alfa;
 
-
 % Beta matrix.
 beta = [ 0; K_t / R_m; 0; -K_t/R_m];
-
 
 % Derive correct B-matrix.
 B = inv(gamma) * beta;
 
-% D-Matrix
+% D-matrix
 D = 0;
 
 % C-matrix
 C = [1, 0, 0, 0;
     0, 0, 1, 0];
 
-%%
-
-% LQR priority weigths.
+% Define LQR priority weights.
 C_prio = [20, .1, 5, .2];
 
-% State space to zero-pole conversion via LQR.
+%% LQR pole placement.
+% State space to zero-pole conversion.
 R = 1;
+
 rho = 4;
 Q = rho*C_prio'*C_prio;
-[K, S, c_poles] = lqr(A,B,Q,R);
 
-% Convert continuous system into discrete.
+
+% Define discrete system.
 descrete_sys = c2d(ss(A, B, C, D), fSamplingPeriod);
 
-% Create state-space equation of discrete matrixes.
+% Get SS matrices for discrete system.
 [Ad, Bd, Cd, Dd] = ssdata(descrete_sys);
 
-% Convert the poles to z-space.
-zeds = exp(c_poles .* fSamplingPeriod);
+[Kd, S, cdpoles] = dlqr(Ad, Bd, Q, R);
 
-% Get control law gain for discrete poles.
-Kd = place(Ad, Bd, zeds);
+odpoles = cdpoles .^6;
 
-% Define discrete observer poles.
-c_oPoles = [-6, -16, -16, -950];
-zeds_o = exp(c_oPoles .* fSamplingPeriod);
 
-%%
 % Full Observer
-Lt = place(Ad', Cd', zeds_o);
+Lt = place(Ad', Cd', odpoles);
 Ld = Lt';
 
-%%
-% Partial observer
 
-% change of basis
+%% Partial observer
+% Change of basis.
 TInv = [
     1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1
-    ];
+    0, 0, 0, 1];
 
 T = inv(TInv);
 
-% Define new system.
+% Define new state matrices.
 Ad_tilde = TInv * Ad * T;
 Bd_tilde = TInv * Bd;
 Cd_tilde = Cd * T;
 
-% Used for completing C.
+% Matrix for basis completion.
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
@@ -138,18 +134,19 @@ Cx = Cd_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
-% Get observer gain.
-Lt_p = place(Axx', ([Ayx; Cx])', zeds_o([1, 2, 4]));
+Lt_p = place(Axx', ([Ayx; Cx])', odpoles([1, 2, 3]));
 L_p = Lt_p';
 
-L_p_acc = L_p(1:3, 1);
-L_p_nacc = L_p(1:3, [2, 3]);
+% Accurate.
+L_p_acc = L_p([1:3], 1);
+% Not accurate.
+L_p_nacc = L_p([1:3], [2, 3]);
 
-% Observer gain matrixes.
 Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
 Md2 = (Bx - L_p_acc * By);
 Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
-Md4 = L_p_nacc(1:3,2);
+Md4 = L_p_nacc([1:3],2);
+%M4 = L_p_nacc;
 Md5 = L_p_acc;
-Md6 = T(1:4, 1);
-Md7 = T(1:4, 2:4);
+Md6 = T([1:4], 1);
+Md7 = T([1:4], [2:4]);

@@ -4,14 +4,18 @@ clc;
 
 %% DO NOT MODIFY THIS!
 iNumberOfEncoderSteps	= 720;
-fGyroConversionFactor	= -1/131;
+fGyroConversionFactor	= 250/32768;
 fWheelRadius			= 0.0216; % [m]
 load('GyroBias.mat');
 
 %% Define constants.
 
 % select the sampling time
-fSamplingPeriod = 0.005;
+sampling_frec = 200;
+
+fSamplingPeriod = round(1/sampling_frec, 3);
+% fSamplingPeriod = 0.005;
+
 
 g = 9.8;
 b_f = 0;
@@ -74,67 +78,75 @@ C_prio = [20, .1, 5, .2];
 %% LQR pole placement.
 % State space to zero-pole conversion.
 R = 1;
-rho = 6;
+
+rho = 4;
 Q = rho*C_prio'*C_prio;
-[K, S, c_poles] = lqr(A,B,Q,R);
+
 
 % Define discrete system.
 descrete_sys = c2d(ss(A, B, C, D), fSamplingPeriod);
 
-% Get SS matrices
+% Get SS matrices for discrete system.
 [Ad, Bd, Cd, Dd] = ssdata(descrete_sys);
 
-% map the poles
-zeds = exp(c_poles .* fSamplingPeriod);
+[Kd, S, cdpoles] = dlqr(Ad, Bd, Q, R);
 
-Kd = place(Ad, Bd, zeds);
+odpoles = cdpoles .;
+
 
 % Full Observer
-Lt = place(Ad', Cd', zeds);
+Lt = place(Ad', Cd', odpoles);
 Ld = Lt';
 
-% Partial observer
-% change of base
+
+%% Partial observer
+% Change of basis.
 TInv = [
     1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1
-    ];
+    0, 0, 0, 1];
 
 T = inv(TInv);
 
+% Define new state matrices.
 Ad_tilde = TInv * Ad * T;
 Bd_tilde = TInv * Bd;
 Cd_tilde = Cd * T;
 
+% Matrix for basis completion.
 V = [0, 1, 0, 0;
     0, 0, 0, 1];
 
+% Partition A.
 Ayy = Ad_tilde(1, 1);
 Ayx = Ad_tilde(1, [2, 3, 4]);
 Axy = Ad_tilde([2, 3, 4], 1);
 Axx = Ad_tilde([2, 3, 4], [2, 3, 4]);
 
+% Partition B.
 By = Bd_tilde(1);
 Bx = Bd_tilde(2:4);
 
+% Partition C.
 Cy = Cd_tilde([1, 2], 1);
 Cx = Cd_tilde([1, 2], [2, 3, 4]);
 
 CC = [Ayx; Cx];
 
-Lt_p = place(Axx', ([Ayx; Cx])', zeds([1, 2, 4]));
+Lt_p = place(Axx', ([Ayx; Cx])', odpoles([1, 2, 3]));
 L_p = Lt_p';
 
-L_p_acc = L_p(1:3, 1);
-L_p_nacc = L_p(1:3, 2, 3);
+% Accurate.
+L_p_acc = L_p([1:3], 1);
+% Not accurate.
+L_p_nacc = L_p([1:3], [2, 3]);
 
 Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
 Md2 = (Bx - L_p_acc * By);
 Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
-Md4 = L_p_nacc(1:3,2);
+Md4 = L_p_nacc([1:3],2);
 %M4 = L_p_nacc;
 Md5 = L_p_acc;
-Md6 = T(1:4, 1);
-Md7 = T(1:4, 2:4);
+Md6 = T([1:4], 1);
+Md7 = T([1:4], [2:4]);
