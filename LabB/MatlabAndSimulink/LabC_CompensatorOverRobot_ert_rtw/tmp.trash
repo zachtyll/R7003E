@@ -1,0 +1,9 @@
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e9801 (probably m2560)
+avrdude: reading input file "E:\MATLAB-Projects\R7003E\LabB\MatlabAndSimulink/LabC_CompensatorOverRobot.hex"
+avrdude: writing flash (24934 bytes):
+avrdude: 24934 bytes of flash written
+
+avrdude done.  Thank you.
+

@@ -148,7 +148,7 @@ fprintf('...done reading!\n');
 
 % Auto-write info to file.
 fprintf('Writing to .csv-format.');
-writematrix(afTimes', 'afTimes' + string(sampling_frec) + '.csv');
-writematrix(aafProcessedInformation, 'Info' + string(sampling_frec) + '.csv');
+writematrix(afTimes', 'afTimesFinal' + string(sampling_frec) + '.csv');
+writematrix(aafProcessedInformation, 'InfoFinal' + string(sampling_frec) + '.csv');
 fprintf('...done writing!\n');
 
