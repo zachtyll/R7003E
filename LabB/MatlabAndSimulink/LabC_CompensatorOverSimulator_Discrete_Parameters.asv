@@ -144,12 +144,10 @@ Md5 = L_p_acc
 Md6 = T([1:4], 1)
 Md7 = T([1:4], [2:4])
 
-Ccomp = [1, 0, 0, 0];
-
-dim = size(Ad);
+Ccomp = [1, 0, 0, 0]
 
 Nxd = 0;
-Nud = inv(Ccomp * inv(ones(dim(1)) - Ad) * Bd) + Kd(1);
+Nud = inv(Ccomp * inv(ones() - Ad) * Bd) + Kd(1);
 
 
 
