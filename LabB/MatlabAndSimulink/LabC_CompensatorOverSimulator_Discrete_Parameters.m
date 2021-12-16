@@ -6,7 +6,7 @@ clc;
 %% Define constants.
 
 % select the sampling time
-sampling_frec = 12.9;
+sampling_frec = 70;
 
 fSamplingPeriod = round(1/sampling_frec, 3)
 
@@ -147,9 +147,13 @@ Md7 = T([1:4], [2:4])
 Ccomp = [1, 0, 0, 0];
 
 dim = size(Ad);
-
+I = eye(dim(1));
 Nxd = 0;
-Nud = inv(Ccomp * inv(ones(dim(1)) - Ad) * Bd) + Kd(1);
+%Nud = inv(Ccomp * inv(I - Ad) * Bd) + Kd(1);
+Nud = inv(-Ccomp * inv(Ad - I - (Bd*Kd))*Bd)
+%Nud = Kd(1);
 
-
+Ad
+Bd
+Cd
 
