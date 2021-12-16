@@ -4,7 +4,7 @@
  close all;
 
 % select the sampling time
-sampling_frec = 200;
+sampling_frec = 70;
 % fSamplingPeriod = 0.005;
 fSamplingPeriod = round(1/sampling_frec, 3);
  
@@ -148,7 +148,7 @@ fprintf('...done reading!\n');
 
 % Auto-write info to file.
 fprintf('Writing to .csv-format.');
-writematrix(afTimes', 'afTimesFinal' + string(sampling_frec) + '.csv');
-writematrix(aafProcessedInformation, 'InfoFinal' + string(sampling_frec) + '.csv');
+writematrix(afTimes', 'afTimesSinus' + string(sampling_frec) + '.csv');
+writematrix(aafProcessedInformation, 'InfoSinus' + string(sampling_frec) + '.csv');
 fprintf('...done writing!\n');
 
