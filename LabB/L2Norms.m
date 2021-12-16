@@ -39,28 +39,28 @@ skip_sec = 4;
 euclidian = 2;
 
 % Cut away skip_sec of seconds from experiment data.
-norm33_xw = norm(info33(skip_sec*33:ratio33:end,2), euclidian);
-norm53_xw = norm(info53(skip_sec*53:ratio53:end,2), euclidian);
-norm73_xw = norm(info73(skip_sec*73:ratio73:end,2), euclidian);
-norm93_xw = norm(info93(skip_sec*93:ratio93:end,2), euclidian);
-norm113_xw = norm(info113(skip_sec*113:ratio113:end,2), euclidian);
-norm133_xw = norm(info133(skip_sec*133:ratio133:end,2), euclidian);
-norm153_xw = norm(info153(skip_sec*153:ratio153:end,2), euclidian);
-norm173_xw = norm(info173(skip_sec*173:ratio173:end,2), euclidian);
-norm193_xw = norm(info193(skip_sec*193:ratio193:end,2), euclidian);
-norm200_xw = norm(info200(skip_sec*200:ratio200:end,2), euclidian);
+norm33_xw = norm(info33(skip_sec*33:33:end,2), euclidian);
+norm53_xw = norm(info53(skip_sec*53:53:end,2), euclidian);
+norm73_xw = norm(info73(skip_sec*73:73:end,2), euclidian);
+norm93_xw = norm(info93(skip_sec*93:93:end,2), euclidian);
+norm113_xw = norm(info113(skip_sec*113:113:end,2), euclidian);
+norm133_xw = norm(info133(skip_sec*133:133:end,2), euclidian);
+norm153_xw = norm(info153(skip_sec*153:153:end,2), euclidian);
+norm173_xw = norm(info173(skip_sec*173:173:end,2), euclidian);
+norm193_xw = norm(info193(skip_sec*193:193:end,2), euclidian);
+norm200_xw = norm(info200(skip_sec*200:200:end,2), euclidian);
 
 % Get the L2 norm of theta for each set.
-norm33_theta = norm(info33(skip_sec*33:ratio33:end,3), euclidian);
-norm53_theta = norm(info53(skip_sec*53:ratio53:end,3), euclidian);
-norm73_theta = norm(info73(skip_sec*73:ratio73:end,3), euclidian);
-norm93_theta = norm(info93(skip_sec*93:ratio93:end,3), euclidian);
-norm113_theta = norm(info113(skip_sec*113:ratio113:end,3), euclidian);
-norm133_theta = norm(info133(skip_sec*133:ratio133:end,3), euclidian);
-norm153_theta = norm(info153(skip_sec*153:ratio153:end,3), euclidian);
-norm173_theta = norm(info173(skip_sec*173:ratio173:end,3), euclidian);
-norm193_theta = norm(info193(skip_sec*193:ratio193:end,3), euclidian);
-norm200_theta = norm(info200(skip_sec*200:ratio200:end,2), euclidian);
+norm33_theta = norm(info33(skip_sec*33:33:end,3), euclidian);
+norm53_theta = norm(info53(skip_sec*53:53:end,3), euclidian);
+norm73_theta = norm(info73(skip_sec*73:73:end,3), euclidian);
+norm93_theta = norm(info93(skip_sec*93:93:end,3), euclidian);
+norm113_theta = norm(info113(skip_sec*113:113:end,3), euclidian);
+norm133_theta = norm(info133(skip_sec*133:133:end,3), euclidian);
+norm153_theta = norm(info153(skip_sec*153:153:end,3), euclidian);
+norm173_theta = norm(info173(skip_sec*173:173:end,3), euclidian);
+norm193_theta = norm(info193(skip_sec*193:193:end,3), euclidian);
+norm200_theta = norm(info200(skip_sec*200:200:end,3), euclidian);
 
 %% Compile and write data to file.
 
