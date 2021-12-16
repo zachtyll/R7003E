@@ -1,0 +1,60 @@
+%% Load files.
+info33 = readmatrix('Info33.csv')';
+info53 = readmatrix('Info53.csv')';
+info73 = readmatrix('Info73.csv')';
+info113 = readmatrix('Info113.csv')';
+info133 = readmatrix('Info133.csv')';
+info153 = readmatrix('Info153.csv')';
+info173 = readmatrix('Info173.csv')';
+info193 = readmatrix('Info193.csv')';
+info200 = readmatrix('Info200.csv')';
+
+%% Start computing.
+
+% Create ratios for number of samples compared to lowest sample size.
+smallest = size(info33,1);
+
+ratio33 = floor(size(info33,1)/smallest);
+ratio53 = floor(size(info53,1)/smallest);
+ratio73 = floor(size(info73,1)/smallest);
+ratio93 = floor(size(info93,1)/smallest);
+ratio113 = floor(size(info113,1)/smallest);
+ratio133 = floor(size(info133,1)/smallest);
+ratio153 = floor(size(info153,1)/smallest);
+ratio173 = floor(size(info173,1)/smallest);
+ratio193 = floor(size(info193,1)/smallest);
+ratio200 = floor(size(info200,1)/smallest);
+
+% Get the L2 norm of xw for each set.
+% NOTE: 4 seconds removed from info200 due to experimental error.
+
+% Euclidian norm is used.
+euclidian = 2;
+
+norm33_xw = norm(info33(1:ratio33:end,2), euclidian);
+norm53_xw = norm(info53(1:ratio53:end,2), euclidian);
+norm73_xw = norm(info73(1:ratio73:end,2), euclidian);
+norm93_xw = norm(info93(1:ratio93:end,2), euclidian);
+norm113_xw = norm(info113(1:ratio113:end,2), euclidian);
+norm133_xw = norm(info133(1:ratio133:end,2), euclidian);
+norm153_xw = norm(info153(1:ratio153:end,2), euclidian);
+norm173_xw = norm(info173(1:ratio173:end,2), euclidian);
+norm193_xw = norm(info193(1:ratio193:end,2), euclidian);
+norm200_xw = norm(info200(800:ratio200:end,2), euclidian);
+
+% Get the L2 norm of theta for each set.
+norm33_theta = norm(info33(1:ratio33:end,3), euclidian);
+norm53_theta = norm(info53(1:ratio53:end,3), euclidian);
+norm73_theta = norm(info73(1:ratio73:end,3), euclidian);
+norm93_theta = norm(info93(1:ratio93:end,3), euclidian);
+norm113_theta = norm(info113(1:ratio113:end,3), euclidian);
+norm133_theta = norm(info133(1:ratio133:end,3), euclidian);
+norm153_theta = norm(info153(1:ratio153:end,3), euclidian);
+norm173_theta = norm(info173(1:ratio173:end,3), euclidian);
+norm193_theta = norm(info193(1:ratio193:end,3), euclidian);
+norm200_theta = norm(info200(800:ratio200:end,2), euclidian);
+
+%% Compile and write data to file.
+
+% Compile data arrays.
+L2_xw = [norm33_xw,norm53_xw,norm73_xw,norm93_xw,norm113_xw,norm133_xw]
