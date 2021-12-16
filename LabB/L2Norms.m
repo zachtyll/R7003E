@@ -1,4 +1,4 @@
-%% Load files.
+%% Load files and set parameters.
 info33 = readmatrix('Info33.csv')';
 info53 = readmatrix('Info53.csv')';
 info73 = readmatrix('Info73.csv')';
@@ -9,36 +9,17 @@ info173 = readmatrix('Info173.csv')';
 info193 = readmatrix('Info193.csv')';
 info200 = readmatrix('Info200.csv')';
 
-%% Start computing.
-
-% Create ratios for number of samples compared to lowest sample size.
-smallest = size(info33,1);
-
-ratio33 = floor(size(info33,1)/smallest);
-ratio53 = floor(size(info53,1)/smallest);
-ratio73 = floor(size(info73,1)/smallest);
-ratio93 = floor(size(info93,1)/smallest);
-ratio113 = floor(size(info113,1)/smallest);
-ratio133 = floor(size(info133,1)/smallest);
-ratio153 = floor(size(info153,1)/smallest);
-ratio173 = floor(size(info173,1)/smallest);
-ratio193 = floor(size(info193,1)/smallest);
-ratio200 = floor(size(info200,1)/smallest);
-
-% Get the L2 norm of xw for each set.
-% NOTE: 4 seconds removed from info200 due to experimental error.
-
-
-% Adjust for error in each set. (Move 4 seconds forward).
-
 % Number of seconds to skip into experiment.
 skip_sec = 4;
 
-
-% Euclidian norm is used.
+% Euclidian/L2 norm is used.
 euclidian = 2;
 
+%% Start computing.
+
 % Cut away skip_sec of seconds from experiment data.
+% Take only samples on each second of the experiment.
+% Compute L2 norms.
 norm33_xw = norm(info33(skip_sec*33:33:end,2), euclidian);
 norm53_xw = norm(info53(skip_sec*53:53:end,2), euclidian);
 norm73_xw = norm(info73(skip_sec*73:73:end,2), euclidian);
