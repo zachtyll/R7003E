@@ -95,7 +95,7 @@ odpoles = exp(6 .* log(cdpoles));
 
 % Full Observer
 Lt = place(Ad', Cd', odpoles);
-Ld = Lt'
+Ld = Lt';
 
 
 %% Partial observer
@@ -104,7 +104,8 @@ TInv = [
     1, 0, 0, 0;
     0, 0, 1, 0;
     0, 1, 0, 0;
-    0, 0, 0, 1];
+    0, 0, 0, 1
+    ];
 
 T = inv(TInv);
 
@@ -114,8 +115,10 @@ Bd_tilde = TInv * Bd;
 Cd_tilde = Cd * T;
 
 % Matrix for basis completion.
-V = [0, 1, 0, 0;
-    0, 0, 0, 1];
+V = [
+    0, 1, 0, 0;
+    0, 0, 0, 1
+    ];
 
 % Partition A.
 Ayy = Ad_tilde(1, 1);
@@ -141,14 +144,13 @@ L_p_acc = L_p([1:3], 1);
 % Not accurate.
 L_p_nacc = L_p([1:3], [2, 3]);
 
-Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx)
-Md2 = (Bx - L_p_acc * By)
-Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy)
-Md4 = L_p_nacc([1:3],2)
-%M4 = L_p_nacc;
-Md5 = L_p_acc
-Md6 = T([1:4], 1)
-Md7 = T([1:4], [2:4])
+Md1 = (Axx - L_p_acc * Ayx - L_p_nacc * Cx);
+Md2 = (Bx - L_p_acc * By);
+Md3 = (Axy - L_p_acc * Ayy - L_p_nacc * Cy);
+Md4 = L_p_nacc(1:3,2);
+Md5 = L_p_acc;
+Md6 = T(1:4, 1);
+Md7 = T(1:4, 2:4);
 
 Ccomp = [1, 0, 0, 0];
 
@@ -158,4 +160,3 @@ I = eye(dim(1));
 Nud = inv(-Ccomp * inv(Ad - I - (Bd*Kd))*Bd);
 
 Nxd = 0;
-
