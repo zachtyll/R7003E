@@ -147,8 +147,7 @@ clear tSerialCommunication;
 fprintf('...done reading!\n');
 
 % Auto-write info to file.
-fprintf('Writing to .csv-format.');
-writematrix(afTimes', 'afTimesSinus' + string(sampling_frec) + '.csv');
-writematrix(aafProcessedInformation, 'InfoSinus' + string(sampling_frec) + '.csv');
-fprintf('...done writing!\n');
-
+% fprintf('Writing to .csv-format.');
+% writematrix(afTimes', 'afTimesSinus' + string(sampling_frec) + '.csv');
+% writematrix(aafProcessedInformation, 'InfoSinus' + string(sampling_frec) + '.csv');
+% fprintf('...done writing!\n');
