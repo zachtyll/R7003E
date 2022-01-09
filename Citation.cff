@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Holmström"
+  given-names: "Erik"
+  orcid: ""
+- family-names: "Serrander"
+  given-names: "Erik"
+  orcid: ""
+- family-names: "Tyllström"
+  given-names: "Zacharias"
+  orcid: ""
+title: "R7003E"
+version: 1.0.0
+doi: 
+date-released: 2022-01-09
+url: "https://github.com/zachtyll/R7003E"
